@@ -86,8 +86,9 @@ GPT_ARGS=" \
     --micro-batch-size $MICRO_BATCH_SIZE \
     --global-batch-size $GLOBAL_BATCH_SIZE \
     --train-samples $TRAIN_SAMPLES \
-    --tokenizer-type PretrainedFromHF \
-    --tokenizer-name-or-path $TOKENIZER_PATH \
+    --tokenizer-type GPT2BPETokenizer \
+    --vocab vocab.json \
+    --merge-file merges.txt \
     --init-method-std 0.0048 \
     --embed-layernorm \
     --sync-tp-duplicated-parameters \
