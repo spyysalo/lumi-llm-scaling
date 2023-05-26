@@ -20,7 +20,7 @@ mkdir /scratch/project_462000273/$USER
 cd /scratch/project_462000273/$USER
 ```
 
-And work there.
+and work there.
 
 ## Quickstart
 
