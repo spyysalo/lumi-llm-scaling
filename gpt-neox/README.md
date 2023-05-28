@@ -56,13 +56,21 @@ python prepare_data.py -d data
 cd ..
 ```
 
-### Small-scale test
+### Schedule job
 
 ```
-../scripts/gpu-interactive.sh
+./pretrain.sh
+```
 
-source load-modules.sh
-source venv/bin/activate
+### Summarize throughput results
 
-python gpt-neox/deepy.py gpt-neox/train.py test.yml
+```
+python3 throughput.py logs/latest.out 
+```
+
+This should print approximately
+
+```
+samples/sec: mean: 4.6 stdev: 0.1 median: 4.6 (125 values)
+TFLOPs     : mean: 66.8 stdev: 1.9 median: 66.9 (125 values)
 ```
