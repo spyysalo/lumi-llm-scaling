@@ -30,3 +30,11 @@ instructions in the relevant subdirectory:
 * [Megatron-DeepSpeed](meg-ds)
 * [GPT-NeoX](gpt-neox)
 * (others TODO)
+
+## Results
+
+### Impact of fused kernels
+
+The figure below shows the impact of switching off one or more of the Megatron-DeepSpeed fused kernels on throughput. In brief summary, only the fused masked softmax kernel has a clear impact on throughput in this experiment.
+
+![Graph showing impact of fused kernels](figures/kernels.png)
