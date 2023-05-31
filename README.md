@@ -38,3 +38,15 @@ instructions in the relevant subdirectory:
 The figure below shows the impact of switching off one or more of the Megatron-DeepSpeed fused kernels on throughput. In brief summary, only the fused masked softmax kernel has a clear impact on throughput in this experiment.
 
 ![Graph showing impact of fused kernels](figures/kernels.png)
+
+### Impact of --num-workers
+
+A non-zero number of dataloader workers provided an approximately 2% increase in throughput in an experiment using the 33B setup, 32 nodes (256 GCDs), data on scratch (flash had issues at the time)
+
+```
+num-workers	samples/sec	TFLOPs
+0           22.1        48.4
+1           22.7        49.7
+2           22.7        49.6
+4           22.8        49.8
+```
