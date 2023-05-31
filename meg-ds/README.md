@@ -99,3 +99,25 @@ This should print approximately
 samples/sec: mean: 8.3 stdev: 0.5 median: 8.4 (13 values)
 TFLOPs     : mean: 71.9 stdev: 4.1 median: 73.0 (13 values)
 ```
+
+### Other model sizes
+
+65B:
+
+```
+sbatch pretrain_65B_8_node.sh
+[wait 30 min]
+python3 throughput.py logs/latest.out 
+samples/sec: mean: 3.9 stdev: 0.3 median: 4.0 (6 values)
+TFLOPs     : mean: 67.6 stdev: 4.9 median: 69.5 (6 values)
+```
+
+175B:
+
+```
+sbatch pretrain_175B_16_node.sh
+[wait 30 min]
+python3 throughput.py logs/latest.out 
+samples/sec: mean: 2.9 stdev: 0.2 median: 3.0 (4 values)
+TFLOPs     : mean: 65.0 stdev: 4.9 median: 67.4 (4 values)
+```
