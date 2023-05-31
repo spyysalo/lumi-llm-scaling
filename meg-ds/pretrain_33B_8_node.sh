@@ -10,7 +10,7 @@
 #SBATCH --gpus-per-node=mi250:8
 #SBATCH --exclusive=user
 #SBATCH --hint=nomultithread
-#SBATCH --account=project_462000119
+#SBATCH --account=project_462000273
 #SBATCH --output=logs/%j.out
 #SBATCH --error=logs/%j.err
 
@@ -46,7 +46,7 @@ PP_SIZE=4
 TP_SIZE=2
 
 MICRO_BATCH_SIZE=2
-GLOBAL_BATCH_SIZE=512
+GLOBAL_BATCH_SIZE=1024
 
 export WORLD_SIZE=$((SLURM_GPUS_ON_NODE*SLURM_JOB_NUM_NODES))
 
@@ -151,7 +151,7 @@ CMD=" \
     --valid-weighted-split-paths-path $VALID_DATA_PATH \
     --data-impl mmap \
     --dataloader-type single \
-    --num-workers 0 \
+    --num-workers 2 \
      $DEEPSPEED_ARGS \
     "
 
