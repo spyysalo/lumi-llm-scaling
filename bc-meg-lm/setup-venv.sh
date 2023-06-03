@@ -33,7 +33,7 @@ source venv/bin/activate
 python -m pip install --upgrade pip setuptools wheel
 
 # Install pip packages
-python -m pip install --upgrade torch==1.13.1+rocm5.2 --extra-index-url https://download.pytorch.org/whl/rocm5.2
+python -m pip install --upgrade torch==1.13.1+rocm5.2 torchvision==0.14.1+rocm5.2 --extra-index-url https://download.pytorch.org/whl/rocm5.2
 python -m pip install --upgrade numpy datasets evaluate accelerate scikit-learn nltk
 python -m pip install --upgrade git+https://github.com/huggingface/transformers
 python -m pip install --upgrade deepspeed==0.8.1
