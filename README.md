@@ -28,6 +28,7 @@ To get started training with one of the transformer implementations, see
 instructions in the relevant subdirectory:
 
 * [Megatron-DeepSpeed](meg-ds)
+* [BigCode Megatron-LM](bc-meg-lm)
 * [GPT-NeoX](gpt-neox)
 * (others TODO)
 
