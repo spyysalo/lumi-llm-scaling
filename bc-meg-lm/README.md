@@ -49,6 +49,12 @@ wget https://huggingface.co/gpt2/resolve/main/vocab.json
 wget https://huggingface.co/gpt2/resolve/main/merges.txt
 ```
 
+Extend vocabulary with [FIM](https://huggingface.co/bigcode/starcoder#fill-in-the-middle) tokens (required by BigCode `preprocess_data.py`)
+
+```
+python3 add_fim_tokens.py vocab.json > vocab_with_fim_tokens.json
+```
+
 Convert data to Megatron binary format on compute node.
 This takes about 30 minutes.
 
@@ -60,12 +66,12 @@ source venv/bin/activate
 
 mkdir data
 for f in wikipedia_20220301.en.{train,valid}.jsonl; do
-    python BigCode-Megatron-LM/tools/preprocess_data.py \
+    python Megatron-LM/tools/preprocess_data.py \
         --input $f \
         --output data/$(basename $f .jsonl) \
         --dataset-impl mmap \
         --tokenizer-type GPT2BPETokenizer \
-        --vocab vocab.json \
+        --vocab vocab_with_fim_tokens.json \
         --merge-file merges.txt \
         --append-eod \
         --workers 128 \
