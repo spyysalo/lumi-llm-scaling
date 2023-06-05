@@ -25,6 +25,10 @@ cd lumi-llm-scaling/bc-meg-lm
 
 Run setup script to create virtual environment. This takes about 30 minutes.
 
+```
+./setup-venv.sh 
+```
+
 Clone the fork of Megatron-LM
 
 ```
