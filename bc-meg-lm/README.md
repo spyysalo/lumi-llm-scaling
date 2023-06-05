@@ -1,8 +1,6 @@
 # BigCode Megatron-LM on LUMI
 
-This directory contains scripts and documentation related to running the
-[BigCode fork of Megatron-LM](https://github.com/microsoft/Megatron-DeepSpeed)
-on LUMI.
+This directory contains scripts and documentation related to running the [BigCode fork](https://github.com/bigcode-project/Megatron-LM) of [Megatron-LM](https://github.com/microsoft/Megatron-DeepSpeed) on LUMI.
 
 ## Quickstart
 
@@ -25,13 +23,14 @@ cd lumi-llm-scaling/bc-meg-lm
 
 Run setup script to create virtual environment. This takes about 30 minutes.
 
+```
+./setup-venv.sh 
+```
+
 Clone the fork of Megatron-LM
 
 ```
-git clone https://github.com/mayank31398/BigCode-Megatron-LM.git
-cd BigCode-Megatron-LM
-git checkout ontocord
-cd ..
+git clone https://github.com/bigcode-project/Megatron-LM.git
 ```
 
 ### Data
@@ -50,6 +49,12 @@ wget https://huggingface.co/gpt2/resolve/main/vocab.json
 wget https://huggingface.co/gpt2/resolve/main/merges.txt
 ```
 
+Extend vocabulary with [FIM](https://huggingface.co/bigcode/starcoder#fill-in-the-middle) tokens (required by BigCode `preprocess_data.py`)
+
+```
+python3 add_fim_tokens.py vocab.json > vocab_with_fim_tokens.json
+```
+
 Convert data to Megatron binary format on compute node.
 This takes about 30 minutes.
 
@@ -61,12 +66,12 @@ source venv/bin/activate
 
 mkdir data
 for f in wikipedia_20220301.en.{train,valid}.jsonl; do
-    python BigCode-Megatron-LM/tools/preprocess_data.py \
+    python Megatron-LM/tools/preprocess_data.py \
         --input $f \
         --output data/$(basename $f .jsonl) \
         --dataset-impl mmap \
         --tokenizer-type GPT2BPETokenizer \
-        --vocab vocab.json \
+        --vocab vocab_with_fim_tokens.json \
         --merge-file merges.txt \
         --append-eod \
         --workers 128 \
