@@ -42,10 +42,10 @@ TRAIN_DATA_PATH="train-data.txt"
 VALID_DATA_PATH="validation-data.txt"
 
 PP_SIZE=4
-TP_SIZE=4
+TP_SIZE=2
 
-MICRO_BATCH_SIZE=1
-GLOBAL_BATCH_SIZE=512
+MICRO_BATCH_SIZE=2
+GLOBAL_BATCH_SIZE=1024
 
 export WORLD_SIZE=$((SLURM_GPUS_ON_NODE*SLURM_JOB_NUM_NODES))
 
@@ -89,9 +89,11 @@ GPT_ARGS=" \
     --merge-file merges.txt \
     --init-method-std 0.0048 \
     --bf16 \
+    --seed 42 \
     --attention-dropout 0.1 \
     --hidden-dropout 0.1 \
-    --seed 42 \
+    --checkpoint-activations \
+    --make-vocab-size-divisible-by 128 \
     $OPTIMIZER_ARGS \
     --no-gradient-accumulation-fusion \
     --valid-num-workers 0 \
