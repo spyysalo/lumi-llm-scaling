@@ -1,8 +1,6 @@
 # BigCode Megatron-LM on LUMI
 
-This directory contains scripts and documentation related to running the
-[BigCode fork of Megatron-LM](https://github.com/microsoft/Megatron-DeepSpeed)
-on LUMI.
+This directory contains scripts and documentation related to running the [BigCode fork](https://github.com/bigcode-project/Megatron-LM) of [Megatron-LM](https://github.com/microsoft/Megatron-DeepSpeed) on LUMI.
 
 ## Quickstart
 
@@ -32,10 +30,7 @@ Run setup script to create virtual environment. This takes about 30 minutes.
 Clone the fork of Megatron-LM
 
 ```
-git clone https://github.com/mayank31398/BigCode-Megatron-LM.git
-cd BigCode-Megatron-LM
-git checkout ontocord
-cd ..
+git clone https://github.com/bigcode-project/Megatron-LM.git
 ```
 
 ### Data
