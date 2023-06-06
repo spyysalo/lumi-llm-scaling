@@ -50,7 +50,7 @@ git clone https://github.com/ROCmSoftwarePlatform/apex/
 mkdir -p logs
 cat <<EOF > install_apex.sh
 #!/bin/bash
-#SBATCH --account=project_462000119
+#SBATCH --account=project_462000273
 #SBATCH --cpus-per-task=20
 #SBATCH --partition=standard-g
 #SBATCH --gres=gpu:mi250:1
