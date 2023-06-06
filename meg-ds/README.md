@@ -118,6 +118,6 @@ TFLOPs     : mean: 69.3 stdev: 0.1 median: 69.3 (5 values)
 sbatch pretrain_175B_16_node.sh
 [wait 30 min]
 python3 throughput.py logs/latest.out 
-samples/sec: mean: 2.9 stdev: 0.2 median: 3.0 (4 values)
-TFLOPs     : mean: 65.0 stdev: 4.9 median: 67.4 (4 values)
+samples/sec: mean: 3.0 stdev: 0.0 median: 3.0 (3 values)
+TFLOPs     : mean: 67.0 stdev: 0.2 median: 66.9 (3 values)
 ```
