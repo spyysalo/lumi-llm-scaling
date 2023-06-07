@@ -26,7 +26,7 @@ module use /pfs/lustrep2/projappl/project_462000125/samantao-public/mymodules
 module load aws-ofi-rccl/rocm-5.2.3
 
 # Create and activate venv
-python -m venv --system-site-packages venv
+python -m venv venv
 source venv/bin/activate
 
 # Upgrade pip etc.
@@ -34,7 +34,8 @@ python -m pip install --upgrade pip setuptools wheel
 
 # Install pip packages
 python -m pip install --upgrade torch==1.13.1+rocm5.2 --extra-index-url https://download.pytorch.org/whl/rocm5.2
-python -m pip install --upgrade numpy datasets evaluate accelerate scikit-learn nltk
+# numpy 1.24.0 or greater breaks due to float deprecation
+python -m pip install --upgrade numpy==1.22.4 datasets evaluate accelerate scikit-learn nltk
 python -m pip install --upgrade git+https://github.com/huggingface/transformers
 python -m pip install --upgrade deepspeed==0.8.1
 python -m pip install --upgrade tensorboard
