@@ -92,7 +92,8 @@ GPT_ARGS=" \
     --seed 42 \
     --attention-dropout 0.1 \
     --hidden-dropout 0.1 \
-    --checkpoint-activations \
+    --recompute-granularity full \
+    --recompute-method uniform \
     --make-vocab-size-divisible-by 128 \
     $OPTIMIZER_ARGS \
     --no-gradient-accumulation-fusion \
