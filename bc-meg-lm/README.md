@@ -98,5 +98,6 @@ python3 throughput.py logs/latest.out
 This should print approximately
 
 ```
-TFLOPs     : mean: 55.9 stdev: 5.3 median: 57.4 (15 values)
+tokens/sec/gpu: mean: 177.1 stdev: 15.6 median: 182.8 (7 values)
+TFLOPs     : mean: 40.5 stdev: 3.6 median: 41.8 (7 values)
 ```
