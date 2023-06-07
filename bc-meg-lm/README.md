@@ -30,7 +30,7 @@ Run setup script to create virtual environment. This takes about 30 minutes.
 Clone the fork of Megatron-LM
 
 ```
-git clone https://github.com/bigcode-project/Megatron-LM.git
+git clone https://github.com/spyysalo/Megatron-LM.git
 ```
 
 ### Data
