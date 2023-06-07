@@ -39,6 +39,7 @@ python -m pip install --upgrade numpy==1.22.4 datasets evaluate accelerate sciki
 python -m pip install --upgrade git+https://github.com/huggingface/transformers
 python -m pip install --upgrade deepspeed==0.8.1
 python -m pip install --upgrade tensorboard
+python -m pip install --upgrade pybind11
 
 # Install apex on a GPU node
 git clone https://github.com/ROCmSoftwarePlatform/apex/
