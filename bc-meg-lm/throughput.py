@@ -4,25 +4,41 @@ import sys
 import re
 
 from statistics import mean, median, stdev
+from argparse import ArgumentParser
 
 
-RE = re.compile(r' TFLOPs: (\S+)')
-#RE = re.compile(r' samples per second: (\S+) .*? TFLOPs: (\S+)')
+def argparser():
+    ap = ArgumentParser()
+    ap.add_argument('--include-first', action='store_true')
+    ap.add_argument('log', nargs='+')
+    return ap
+
+
+RE = re.compile(r' TFLOPs: (\S+) .*? tokens-per-second-per-gpu: (\S+)')
 
 
 def main(argv):
-    samples, flops = [], []
-    for fn in argv[1:]:
+    args = argparser().parse_args(argv[1:])
+
+    flops, tokens = [], []
+    for fn in args.log:
         with open(fn) as f:
             for l in f:
                 m = RE.search(l)
                 if m:
-                    #s, t = m.groups()
-                    t = m.group(1)
-                    #samples.append(float(s))
-                    flops.append(float(t))
+                    f, t = m.groups()
+                    flops.append(float(f))
+                    tokens.append(float(t))
     if not flops:
         print('no throughput lines found')
+        return
+
+    if not args.include_first:
+        tokens = tokens[1:]
+        flops = flops[1:]
+
+    if len(tokens) < 1:
+        print('not enough throughput lines found')
         return
 
     def print_stats(label, d):
@@ -34,7 +50,7 @@ def main(argv):
             f'({len(d)} values)'
         )
 
-    #print_stats('samples/sec:', samples)
+    print_stats('tokens/sec/gpu:', tokens)
     print_stats('TFLOPs     :', flops)
 
 
