@@ -37,7 +37,7 @@ def main(argv):
         tokens = tokens[1:]
         flops = flops[1:]
 
-    if len(tokens) < 1:
+    if len(tokens) < 2:
         print('not enough throughput lines found')
         return
 
