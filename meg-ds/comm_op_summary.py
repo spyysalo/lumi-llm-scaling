@@ -8,7 +8,7 @@ from statistics import mean, median, stdev
 from argparse import ArgumentParser
 
 
-COMM_OP_RE = re.compile(r'.*?comm op: (\S+) \| time \(ms\): (\S+) \| msg size: (\S+) .*')
+COMM_OP_RE = re.compile(r'.*?comm op: (\S+) \| time \(ms\): (\S+) \| msg size: (\S+ \S+) .*')
 
 
 def argparser():
