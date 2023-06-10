@@ -39,7 +39,7 @@ def main(argv):
         samples = samples[1:]
         flops = flops[1:]
 
-    if len(samples) < 1:
+    if len(samples) < 2:
         print('not enough throughput lines found')
         return        
         
