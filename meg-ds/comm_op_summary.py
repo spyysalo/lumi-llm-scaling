@@ -14,6 +14,7 @@ COMM_OP_RE = re.compile(r'.*?comm op: (\S+) \| time \(ms\): (\S+) \| msg size: (
 def argparser():
     ap = ArgumentParser()
     ap.add_argument('log', nargs='+')
+    ap.add_argument('--min-count', default=None, type=int)
     return ap
 
 
@@ -29,6 +30,7 @@ def print_stats(label, d):
         'min', f'{min(d):.1f}',
         'max', f'{max(d):.1f}',
         'count', str(len(d)),
+        'total', f'{sum(d):.1f}',
     ]))
 
 
@@ -47,6 +49,8 @@ def main(argv):
     for op in data:
         print(op)
         for size in data[op]:
+            if args.min_count is not None and len(data[op][size]) < args.min_count:
+                continue
             print_stats(size, data[op][size])
         print()
 
