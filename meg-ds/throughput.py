@@ -44,13 +44,13 @@ def main(argv):
         return        
         
     def print_stats(label, d):
-        print(
+        print('\t'.join([
             label,
-            f'mean: {mean(d):.1f}',
-            f'stdev: {stdev(d):.1f}',
-            f'median: {median(d):.1f}',
-            f'({len(d)} values)'
-        )
+            'mean', f'{mean(d):.1f}',
+            'stdev', f'{stdev(d):.1f}',
+            'median', f'{median(d):.1f}',
+            'values', str(len(d)),
+        ]))
 
     print_stats('samples/sec:', samples)
     print_stats('TFLOPs     :', flops)
