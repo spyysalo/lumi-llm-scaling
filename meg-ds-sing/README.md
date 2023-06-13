@@ -98,6 +98,16 @@ exit
 
 **TODO: move data to flash, read from there**
 
+### Small-scale test
+
+```
+./gpu-interactive.sh
+
+source /opt/miniconda3/bin/activate pytorch
+
+./smallrun.sh
+```
+
 ### Schedule batch job
 
 TODO
