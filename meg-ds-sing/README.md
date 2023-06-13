@@ -33,6 +33,20 @@ export SINGULARITY_CACHEDIR=/tmp/$USER
 singularity pull docker://sfantao/pytorch-lumi:sles-rocm-5.5.1-python-3.10-pytorch-v2.0.1-apex-torchvision-torchdata-torchtext-torchaudio
 ```
 
+Install python packages to userspace
+
+```
+./cpu-interactive.sh
+
+source /opt/miniconda3/bin/activate pytorch
+
+python -m pip install --upgrade datasets evaluate accelerate scikit-learn nltk
+python -m pip install --upgrade git+https://github.com/huggingface/transformers
+python -m pip install --upgrade deepspeed
+python -m pip install --upgrade tensorboard
+python -m pip install --upgrade pybind11
+```
+
 Clone a fork of Megatron-DeepSpeed
 
 ```
@@ -62,7 +76,7 @@ Convert data to Megatron-DeepSpeed binary format on compute node.
 This takes about 30 minutes.
 
 ```
-./cpu-interactive.sh 
+./cpu-interactive.sh
 
 source /opt/miniconda3/bin/activate pytorch
 
