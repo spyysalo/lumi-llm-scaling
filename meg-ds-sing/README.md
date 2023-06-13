@@ -111,5 +111,14 @@ source /opt/miniconda3/bin/activate pytorch
 ### Schedule batch job
 
 ```
-sbatch pretrain_3B_1_node.sh
+pretrain_33B_8_node.sh
+[wait 30 min]
+throughput.py logs/latest.*
+```
+
+This should output approximately
+
+```
+samples/sec:	mean	7.5	stdev	0.0	median	7.5	values	11
+TFLOPs     :	mean	64.8	stdev	0.3	median	64.8	values	11
 ```
