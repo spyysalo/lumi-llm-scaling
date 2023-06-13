@@ -110,4 +110,6 @@ source /opt/miniconda3/bin/activate pytorch
 
 ### Schedule batch job
 
-TODO
+```
+sbatch pretrain_3B_1_node.sh
+```
