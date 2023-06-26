@@ -82,6 +82,7 @@ GPT_ARGS=" \
     --num-attention-heads $NHEADS \
     --ffn-hidden-size $FFN_HIDDEN_SIZE \
     --seq-length $SEQ_LEN \
+    --max-position-embeddings $SEQ_LEN \
     --micro-batch-size $MICRO_BATCH_SIZE \
     --global-batch-size $GLOBAL_BATCH_SIZE \
     --train-samples $TRAIN_SAMPLES \
@@ -92,7 +93,7 @@ GPT_ARGS=" \
     --sync-tp-duplicated-parameters \
     --bf16 \
     --seed 42 \
-    --position-embedding-type rotary \
+    --position-embedding-type alibi \
     --checkpoint-activations \
     --make-vocab-size-divisible-by 128 \
     $OPTIMIZER_ARGS \
