@@ -94,7 +94,7 @@ GPT_ARGS=" \
     --sync-tp-duplicated-parameters \
     --bf16 \
     --seed 42 \
-    --position-embedding-type alibi \
+    --position-embedding-type rotary \
     --checkpoint-activations \
     --make-vocab-size-divisible-by 128 \
     $OPTIMIZER_ARGS \
