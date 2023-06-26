@@ -38,9 +38,9 @@ TENSORBOARD_PATH=tensorboard
 #rm -rf "$CHECKPOINT_PATH" "$TENSORBOARD_PATH" # Start from scratch
 
 # Data
-TRAIN_DATA_PATH="train-data.txt"
-VALID_DATA_PATH="validation-data.txt"
-TOKENIZER_PATH="tokenizer"
+TRAIN_DATA_PATH="RedPajama-train-data.txt"
+VALID_DATA_PATH="RedPajama-validation-data.txt"
+TOKENIZER_PATH="togethercomputer/RedPajama-INCITE-7B-Base"
 
 PP_SIZE=2
 TP_SIZE=1
@@ -82,13 +82,11 @@ GPT_ARGS=" \
     --num-attention-heads $NHEADS \
     --ffn-hidden-size $FFN_HIDDEN_SIZE \
     --seq-length $SEQ_LEN \
-    --max-position-embeddings $SEQ_LEN \
     --micro-batch-size $MICRO_BATCH_SIZE \
     --global-batch-size $GLOBAL_BATCH_SIZE \
     --train-samples $TRAIN_SAMPLES \
-    --tokenizer-type GPT2BPETokenizer \
-    --vocab-file vocab.json \
-    --merge-file merges.txt \
+    --tokenizer-type PretrainedFromHF \
+    --tokenizer-name-or-path $TOKENIZER_PATH \
     --init-method-std 0.0048 \
     --embed-layernorm \
     --sync-tp-duplicated-parameters \
