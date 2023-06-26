@@ -25,7 +25,7 @@ fi
 rm -rf separate-logs
 mkdir -p separate-logs
 
-LEARNING_RATE=1.5e-4
+LEARNING_RATE=1.2e-4
 
 set -euo pipefail
 
