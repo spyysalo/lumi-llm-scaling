@@ -89,15 +89,17 @@ sbatch pretrain_33B_8_node.sh
 
 ### Summarize throughput results
 
+After allowing the job to run for 30 min:
+
 ```
-python3 throughput.py logs/latest.out 
+python3 throughput.py logs/latest.out
 ```
 
 This should print approximately
 
 ```
-samples/sec: mean: 8.3 stdev: 0.0 median: 8.3 (8 values)
-TFLOPs     : mean: 72.1 stdev: 0.1 median: 72.1 (8 values)
+samples/sec:	mean	8.4	stdev	0.0	median	8.4	values	11
+TFLOPs     :	mean	72.3	stdev	0.0	median	72.3	values	11
 ```
 
 ### Other model sizes
