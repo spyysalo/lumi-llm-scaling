@@ -102,6 +102,16 @@ TFLOPs     : mean: 72.1 stdev: 0.1 median: 72.1 (8 values)
 
 ### Other model sizes
 
+7B:
+
+```
+sbatch pretrain_7B_4_node.sh
+[wait 30 min]
+python3 throughput.py logs/latest.out 
+samples/sec:	mean	19.4	stdev	0.1	median	19.4	values	11
+TFLOPs     :	mean	70.9	stdev	0.3	median	71.0	values	11
+```
+
 65B:
 
 ```
